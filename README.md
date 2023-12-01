@@ -5,7 +5,7 @@
 pip install aspose-3d
 ```
 
-Run the code below:
+- Run the code below:
 
 ```
 import aspose.threed as a3d
