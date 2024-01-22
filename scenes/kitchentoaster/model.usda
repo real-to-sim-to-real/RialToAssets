@@ -1,0 +1,342 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Three.js USDZExporter"
+    }
+    metersPerUnit = 1
+    upAxis = "Y"
+	defaultPrim = "World"
+)
+
+def Xform "World"(
+			prepend apiSchemas = ["PhysicsArticulationRootAPI", "PhysxArticulationAPI"] 
+		){
+			matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1) )
+			uniform token[] xformOpOrder = ["xformOp:transform"]
+def Xform "Xform_267"(){
+			matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1) )
+			uniform token[] xformOpOrder = ["xformOp:transform"]
+def Xform "Object_267" (
+			prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysxRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxConvexHullCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxConvexDecompositionCollisionAPI", "PhysxJointAPI"]
+		)
+{
+    matrix4d xformOp:transform = ( (-0.015354155630491917, 0, 0.9998821180043549, 0), (0, 1, 0, 0), (-0.9998821180043549, 0, -0.015354155630491917, 0), (0.21598644900507935, 0.4202903180468993, -0.5113146963864296, 1) )
+    uniform token[] xformOpOrder = ["xformOp:transform"]
+	uniform token physics:approximation = "convexDecomposition"
+
+    rel material:binding = </World/Materials/Material_188>
+
+	bool physics:kinematicEnabled = 0
+	
+		bool physics:rigidBodyEnabled = 1
+		float physics:mass = 0.411
+		float physxRigidBody:maxLinearVelocity = 1000
+		float physxRigidBody:sleepThreshold = 0.5
+		
+    
+    over "Geometry" (
+		prepend references = @./geometries/Geometry_235.usd@</Geometry>
+	)
+	{
+		uniform token physics:approximation = "convexDecomposition"
+		bool physics:collisionEnabled = 1
+	}
+
+	
+				def PhysicsFixedJoint "FixedJoint"
+				{
+					rel physics:body0 = </World/Xform_282/Object_282>
+					rel physics:body1 = </World/Xform_267/Object_267>
+					float physics:breakForce = inf
+					float physics:breakTorque = inf
+					point3f physics:localPos0 = (0.5145707111417182, -0.42029031804689937, 0.20811018266696335)
+					point3f physics:localPos1 = (0.18769566592050518, -0.34685045553584115, -0.027533751780488162)
+					quatf physics:localRot0 = (0.7016572683189094, 0, 0.7125146158607878, 0)
+					quatf physics:localRot1 = (0.7203986172101075, 0, -0.6935602586089872, 0)
+				}
+				
+}
+
+}
+def Xform "Xform_270"(){
+			matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1) )
+			uniform token[] xformOpOrder = ["xformOp:transform"]
+def Xform "Object_270" (
+			prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysxRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxConvexHullCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxConvexDecompositionCollisionAPI", "PhysxJointAPI"]
+		)
+{
+    matrix4d xformOp:transform = ( (-0.01417988150028715, 0, 0.999899460426216, 0), (0.5134890410091597, 0.8580652527796117, 0.007281945876940754, 0), (-0.8579789832648183, 0.5135406721694604, -0.012167263603928946, 0), (0.41503813696013137, 0.33394690216151446, -0.5036368448498703, 1) )
+    uniform token[] xformOpOrder = ["xformOp:transform"]
+	uniform token physics:approximation = "convexDecomposition"
+
+    rel material:binding = </World/Materials/Material_193>
+
+	bool physics:kinematicEnabled = 0
+	
+		bool physics:rigidBodyEnabled = 1
+		float physics:mass = 0.411
+		float physxRigidBody:maxLinearVelocity = 1000
+		float physxRigidBody:sleepThreshold = 0.5
+		
+    
+    over "Geometry" (
+		prepend references = @./geometries/Geometry_240.usd@</Geometry>
+	)
+	{
+		uniform token physics:approximation = "convexDecomposition"
+		bool physics:collisionEnabled = 1
+	}
+
+	
+		def PhysicsRevoluteJoint "RevoluteJoint"
+		{
+			uniform token physics:axis = "Y"
+			rel physics:body0 = </World/Xform_270/Object_270>
+			rel physics:body1 = </World/Xform_267/Object_267>
+			float physics:breakForce = inf
+			float physics:breakTorque = inf
+			point3f physics:localPos0 = (0.10500478761469184, -0.38735848748153945, 0.03390387294436237)
+			point3f physics:localPos1 = (0.1098931735916498, -0.4013112566615642, 0.02874648799480281)
+			quatf physics:localRot0 = (0.3415660828897255, 0.6133862325396827, 0.3464442808299536, 0.6221465269776565)
+			quatf physics:localRot1 = (0.4923338195635101, 0.4999303274444942, 0.49995212500546543, 0.5076661801989232)
+			float physics:lowerLimit = -90
+			float physics:upperLimit = 90
+			float physxJoint:jointFriction = 1
+		}
+		
+}
+
+}
+def Xform "Xform_282"(){
+			matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1) )
+			uniform token[] xformOpOrder = ["xformOp:transform"]
+def Xform "Object_282" (
+			prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysxRigidBodyAPI", "PhysicsMassAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxConvexHullCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxConvexDecompositionCollisionAPI", "PhysxJointAPI"]
+		)
+{
+    matrix4d xformOp:transform = ( (0.03794833535646969, 0, -0.9992797025075978, 0), (0, 1, 0, 0), (0.9992797025075978, 0, 0.03794833535646969, 0), (0.020391181212817022, 0.34685045553584115, 0.18860532924919565, 1) )
+    uniform token[] xformOpOrder = ["xformOp:transform"]
+	uniform token physics:approximation = "convexDecomposition"
+
+    rel material:binding = </World/Materials/Material_209>
+
+	bool physics:kinematicEnabled = 0
+	
+		bool physics:rigidBodyEnabled = 1
+		float physics:mass = 0.411
+		float physxRigidBody:maxLinearVelocity = 1000
+		float physxRigidBody:sleepThreshold = 0.5
+		
+    
+    over "Geometry" (
+		prepend references = @./geometries/Geometry_256.usd@</Geometry>
+	)
+	{
+		uniform token physics:approximation = "convexDecomposition"
+		bool physics:collisionEnabled = 1
+	}
+
+	
+			def PhysicsFixedJoint "FixedJoint"
+			{
+				rel physics:body1 = </World/Xform_282/Object_282>
+				float physics:breakForce = inf
+				float physics:breakTorque = inf
+				point3f physics:localPos0 = (0.18769566592050518, -0.34685045553584115, -0.027533751780488162)
+				point3f physics:localPos1 = (0,0,0)
+				quatf physics:localRot0 = (0.7203986172101075, 0, -0.6935602586089872, 0)
+				quatf physics:localRot1 = (1,0,0,0)
+			}
+			
+}
+
+}
+def "Materials"
+{
+
+    def Material "Material_188"(
+		prepend apiSchemas = ["PhysicsMaterialAPI"]
+	)
+    {
+		token outputs:surface.connect = </World/Materials/Material_188/PreviewSurface.outputs:surface>
+        token inputs:frame:stPrimvarName = "st"
+		float physics:dynamicFriction = 0.5
+		float physics:restitution = 0
+		float physics:staticFriction = 0.5
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor.connect = </World/Materials/Material_188/Texture_19_diffuse.outputs:rgb>
+            float inputs:roughness = 1
+            float inputs:metallic = 0
+            float inputs:opacity = 1
+            int inputs:useSpecularWorkflow = 0
+            token outputs:surface
+        }
+
+
+
+        def Shader "uvReader_st"
+        {
+            uniform token info:id = "UsdPrimvarReader_float2"
+            token inputs:varname.connect = </World/Materials/Material_188.inputs:frame:stPrimvarName>
+            float2 inputs:fallback = (0.0, 0.0)
+            float2 outputs:result
+        }
+
+
+        def Shader "Transform2d_diffuse" (
+            sdrMetadata = {
+                string role = "math"
+            }
+        )
+        {
+            uniform token info:id = "UsdTransform2d"
+            float2 inputs:in.connect = </World/Materials/Material_188/uvReader_st.outputs:result>
+            float2 inputs:scale = (1, 1)
+            float2 inputs:translation = (0, 0)
+            float2 outputs:result
+        }
+
+        def Shader "Texture_19_diffuse"
+        {
+            uniform token info:id = "UsdUVTexture"
+            asset inputs:file = @textures/Texture_19_ffffff.png@
+            float2 inputs:st.connect = </World/Materials/Material_188/Transform2d_diffuse.outputs:result>
+            token inputs:wrapS = "repeat"
+            token inputs:wrapT = "repeat"
+            float outputs:r
+            float outputs:g
+            float outputs:b
+            float3 outputs:rgb
+            
+        }
+
+    }
+
+    def Material "Material_193"(
+		prepend apiSchemas = ["PhysicsMaterialAPI"]
+	)
+    {
+		token outputs:surface.connect = </World/Materials/Material_193/PreviewSurface.outputs:surface>
+        token inputs:frame:stPrimvarName = "st"
+		float physics:dynamicFriction = 0.5
+		float physics:restitution = 0
+		float physics:staticFriction = 0.5
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor.connect = </World/Materials/Material_193/Texture_19_diffuse.outputs:rgb>
+            float inputs:roughness = 1
+            float inputs:metallic = 0
+            float inputs:opacity = 1
+            int inputs:useSpecularWorkflow = 0
+            token outputs:surface
+        }
+
+
+
+        def Shader "uvReader_st"
+        {
+            uniform token info:id = "UsdPrimvarReader_float2"
+            token inputs:varname.connect = </World/Materials/Material_193.inputs:frame:stPrimvarName>
+            float2 inputs:fallback = (0.0, 0.0)
+            float2 outputs:result
+        }
+
+
+        def Shader "Transform2d_diffuse" (
+            sdrMetadata = {
+                string role = "math"
+            }
+        )
+        {
+            uniform token info:id = "UsdTransform2d"
+            float2 inputs:in.connect = </World/Materials/Material_193/uvReader_st.outputs:result>
+            float2 inputs:scale = (1, 1)
+            float2 inputs:translation = (0, 0)
+            float2 outputs:result
+        }
+
+        def Shader "Texture_19_diffuse"
+        {
+            uniform token info:id = "UsdUVTexture"
+            asset inputs:file = @textures/Texture_19_ffffff.png@
+            float2 inputs:st.connect = </World/Materials/Material_193/Transform2d_diffuse.outputs:result>
+            token inputs:wrapS = "repeat"
+            token inputs:wrapT = "repeat"
+            float outputs:r
+            float outputs:g
+            float outputs:b
+            float3 outputs:rgb
+            
+        }
+
+    }
+
+    def Material "Material_209"(
+		prepend apiSchemas = ["PhysicsMaterialAPI"]
+	)
+    {
+		token outputs:surface.connect = </World/Materials/Material_209/PreviewSurface.outputs:surface>
+        token inputs:frame:stPrimvarName = "st"
+		float physics:dynamicFriction = 0.5
+		float physics:restitution = 0
+		float physics:staticFriction = 0.5
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor.connect = </World/Materials/Material_209/Texture_21_diffuse.outputs:rgb>
+            float inputs:roughness = 1
+            float inputs:metallic = 0
+            float inputs:opacity = 1
+            int inputs:useSpecularWorkflow = 0
+            token outputs:surface
+        }
+
+
+
+        def Shader "uvReader_st"
+        {
+            uniform token info:id = "UsdPrimvarReader_float2"
+            token inputs:varname.connect = </World/Materials/Material_209.inputs:frame:stPrimvarName>
+            float2 inputs:fallback = (0.0, 0.0)
+            float2 outputs:result
+        }
+
+
+        def Shader "Transform2d_diffuse" (
+            sdrMetadata = {
+                string role = "math"
+            }
+        )
+        {
+            uniform token info:id = "UsdTransform2d"
+            float2 inputs:in.connect = </World/Materials/Material_209/uvReader_st.outputs:result>
+            float2 inputs:scale = (1, 1)
+            float2 inputs:translation = (0, 0)
+            float2 outputs:result
+        }
+
+        def Shader "Texture_21_diffuse"
+        {
+            uniform token info:id = "UsdUVTexture"
+            asset inputs:file = @textures/Texture_21_ffffff.png@
+            float2 inputs:st.connect = </World/Materials/Material_209/Transform2d_diffuse.outputs:result>
+            token inputs:wrapS = "repeat"
+            token inputs:wrapT = "repeat"
+            float outputs:r
+            float outputs:g
+            float outputs:b
+            float3 outputs:rgb
+            
+        }
+
+    }
+
+}
+
+}
