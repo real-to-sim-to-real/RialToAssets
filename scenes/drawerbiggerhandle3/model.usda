@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (1.7750971296483893, 0.5384600057060397, -0.13394020305108453)
-                double3 target = (-1.1783859567902841, -0.19057804478258245, -0.8473743495064906)
+                double3 position = (1.6001815222296565, 0.5863698618319294, 0.5412197712076964)
+                double3 target = (-1.353301564209024, -0.14266818865666342, -0.17221437524770955)
             }
             dictionary Right = {
                 double3 position = (-5, 0, 0)
@@ -33,12 +33,8 @@
         }
         dictionary renderSettings = {
             float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
+            int "rtx:externalFrameCounter" = 91813
             float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
-            float3 "rtx:index:regionOfInterestMax" = (0, 0, 0)
-            float3 "rtx:index:regionOfInterestMin" = (0, 0, 0)
-            float3 "rtx:iray:environment_dome_ground_position" = (0, 0, 0)
-            float3 "rtx:iray:environment_dome_ground_reflectivity" = (0, 0, 0)
-            float3 "rtx:iray:environment_dome_rotation_axis" = (3.4028235e38, 3.4028235e38, 3.4028235e38)
             float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
             float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
             float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
@@ -482,7 +478,7 @@ def Xform "World" (
             }
 
             def PhysicsPrismaticJoint "PrismaticJoint" (
-                prepend apiSchemas = ["PhysxLimitAPI:linear"]
+                prepend apiSchemas = ["PhysxLimitAPI:linear", "PhysxJointAPI"]
             )
             {
                 uniform token physics:axis = "Y"
@@ -496,7 +492,7 @@ def Xform "World" (
                 quatf physics:localRot1 = (-0.7107626, 1.04754e-16, -4.4887737e-19, 0.7034319)
                 float physics:lowerLimit = 0
                 float physics:upperLimit = 0.2
-                float physxJoint:jointFriction = 1
+                float physxJoint:jointFriction = 0.5
                 float physxLimit:linear:bounceThreshold = 100000
                 float physxLimit:linear:contactDistance = 100
                 float physxLimit:linear:damping = 1000000
